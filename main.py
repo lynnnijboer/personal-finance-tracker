@@ -1,5 +1,6 @@
 from balance_calculation import *
 from users import *
+from existing_users import *
 
 INPUT_ERROR_MSG = "Incorrect input. Please try again.\n"
 FIRST_MENU_TEXT = '''
@@ -12,18 +13,23 @@ Please select an option:
 def first_menu():
 # new user - ask for income, user info
 # existing user - menu 2 - select user account - menu 3 - browse respective data
+    users = None
+    existing_users = []
+
     print(FIRST_MENU_TEXT)
     while True:
         try:
             menu_choice = int(input('Which option do you choose: '))
+            print(FIRST_MENU_TEXT)
             if menu_choice == 1:
                 users = create_new_user()
-                print(FIRST_MENU_TEXT)
+                existing_users.append(users)
                 continue
+                
             elif menu_choice == 2:
-                pass
-            else:
-                print(INPUT_ERROR_MSG)
+                print_existing_users(existing_users)
+                continue
+
         except ValueError:
             print(INPUT_ERROR_MSG)
         else:
