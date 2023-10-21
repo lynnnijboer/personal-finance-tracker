@@ -5,9 +5,9 @@ from existing_users import *
 INPUT_ERROR_MSG = "Incorrect input. Please try again.\n"
 FIRST_MENU_TEXT = '''
 Please select an option:
- 1. New User 
- 2. Existing User
- 3. ?
+1. New User 
+2. Existing User
+3. Show user statistics
 '''
 
 def first_menu():
@@ -28,6 +28,12 @@ def first_menu():
                 
             elif menu_choice == 2:
                 print_existing_users(existing_users)
+                option = int(input(f"What user do you want to see? Please enter number 1 - {len(existing_users)}: "))
+                for index, user in enumerate(existing_users):
+                    if option == index + 1:
+                        current_user = user
+                        for items in user.values():
+                            print(f"User {items['user_name']} has been set.")
                 continue
 
         except ValueError:
