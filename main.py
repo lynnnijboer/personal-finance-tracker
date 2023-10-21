@@ -15,12 +15,10 @@ def first_menu():
 # existing user - menu 2 - select user account - menu 3 - browse respective data
     users = None
     existing_users = []
-
-    print(FIRST_MENU_TEXT)
     while True:
         try:
-            menu_choice = int(input('Which option do you choose: '))
             print(FIRST_MENU_TEXT)
+            menu_choice = int(input('Which option do you choose: '))
             if menu_choice == 1:
                 users = create_new_user()
                 existing_users.append(users)
@@ -35,6 +33,15 @@ def first_menu():
                         for items in user.values():
                             print(f"User {items['user_name']} has been set.")
                 continue
+            elif menu_choice == 3:
+                if current_user:
+                    for key, values in current_user.items():
+                        print(f"Name: {values['user_name']}")
+                        print(f"Income: {values['user_income']}")
+                    continue
+                else:
+                    print("No user has been selected.")
+                    continue
 
         except ValueError:
             print(INPUT_ERROR_MSG)
