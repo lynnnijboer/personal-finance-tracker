@@ -15,10 +15,12 @@ def first_menu():
 # existing user - menu 2 - select user account - menu 3 - browse respective data
     users = None
     existing_users = []
+
+    print(FIRST_MENU_TEXT)
     while True:
         try:
-            print(FIRST_MENU_TEXT)
             menu_choice = int(input('Which option do you choose: '))
+            print(FIRST_MENU_TEXT)
             if menu_choice == 1:
                 users = create_new_user()
                 existing_users.append(users)
