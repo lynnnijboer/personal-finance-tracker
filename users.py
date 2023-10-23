@@ -13,6 +13,7 @@ def new_user_name_checker():
             break
     return new_user_name
 
+
 def new_user_income_checker():
     while True:
         new_user_income = input("\nPlease enter your monthly income: ")
@@ -29,12 +30,13 @@ def new_user_income_checker():
 
     return new_user_income
 
+
 def create_new_user():
-    users = { "user" : { "user_name" : [], "user_income" : [] } }
+    users = {"user": {"user_name": [], "user_income": []}}
 
     new_user_name = new_user_name_checker()
     new_user_income = new_user_income_checker()
-    users['user']['user_name'] = new_user_name
-    users['user']['user_income'] = new_user_income
+    users["user"]["user_name"] = new_user_name
+    users["user"]["user_income"] = new_user_income
 
     return users

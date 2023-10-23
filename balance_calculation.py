@@ -1,7 +1,8 @@
 def balance_calculation(current_user, option, balance):
     for key, values in current_user.items():
-        user_income = int(values['user_income'])
-        amount = int(input("Please enter a new income: "))
+        user_income = float(values["user_income"])
+        amount = input("Please enter a new income: ").replace(",", ".")
+        amount = float(amount)
         description = input("What is the description? ")
         if option == 1:
             user_income += amount
@@ -9,7 +10,7 @@ def balance_calculation(current_user, option, balance):
         elif option == 2:
             user_income -= amount
             print(f"{amount} euro has been subtracted from balance.")
-        values['user_income'] = user_income
-        income_entry = (amount, description)
+        values["user_income"] = user_income
+        income_entry = (round(amount, 2), description)
         balance.append(income_entry)
     return user_income, balance
