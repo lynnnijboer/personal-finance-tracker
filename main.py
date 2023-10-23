@@ -26,9 +26,7 @@ def first_menu():
             if menu_choice == 1:
                 users = create_new_user()
                 existing_users.append(users)
-                print
                 continue
-
             elif menu_choice == 2:
                 print_existing_users(existing_users)
                 current_user = choose_user(existing_users, current_user)
